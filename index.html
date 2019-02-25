@@ -9,54 +9,54 @@
   <meta name="author" content="James Volpe">
 
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 
 </head>
 
 <body>
   <section id="wrapper"> 
       <div id="calc-body">
-        <div id="result">
-            <!-- <input type="text" id="expression" placeholder="Begin Entering Expression"> -->
+        <div id="calc-screen">
             <textarea autofocus id="expression" placeholder="Press any button"></textarea>
+            <div id="result">
+            </div>
         </div>
         <div id="calc-buttons">
             <div class="row">
-                <input onClick="" type="button" id="btn-clear" class="btn-del" name="" value="C">
-                <input onClick="" type="button" id="btn-backspace" class="btn-del" name="" value="Del">
-                <input onClick="" type="button" class="btn-ops" name="" value="%">
-                <input onClick="" type="button" class="btn-ops" name="" value="/">
+                <button id="btn-clear" class="btn-del">C</button>
+                <button id="btn-backspace" class="btn-del">Del</button>
+                <button class="btn-ops" value="%">%</button>
+                <button class="btn-ops" value="/">/</button>
                 
             </div>
             <div class="row">
-                <input onClick="" type="button" class="btn-ops" name="" value="sin">
-                <input onClick="" type="button" class="btn-nums" name="" value="7">
-                <input onClick="" type="button" class="btn-nums" name="" value="8">
-                <input onClick="" type="button" class="btn-nums" name="" value="9">
-                <input onClick="" type="button" class="btn-ops" name="" value="*">
+                <button class="btn-ops" value="Del">sin</button>
+                <button class="btn-nums" value="Del">7</button>
+                <button class="btn-nums" value="Del">8</button>
+                <button class="btn-nums" value="Del">9</button>
+                <button class="btn-ops" value="Del">*</button>
+            </div>
+            <div class="row">
+                <button class="btn-ops" value="Del">cos</button>
+                <button class="btn-nums" value="Del">4</button>
+                <button class="btn-nums" value="Del">5</button>
+                <button class="btn-nums" value="Del">6</button>
+                <button class="btn-ops" value="Del">-</button>
+            </div>
+            <div class="row">
+                <button class="btn-ops" value="Del">tan</button>
+                <button class="btn-nums" value="Del">1</button>
+                <button class="btn-nums" value="Del">2</button>
+                <button class="btn-nums" value="Del">3</button>
+                <button class="btn-ops" value="Del">+</button>
                 
             </div>
             <div class="row">
-                <input onClick="" type="button" class="btn-ops" name="" value="cos">
-                <input onClick="" type="button" class="btn-nums" name="" value="4">
-                <input onClick="" type="button" class="btn-nums" name="" value="5">
-                <input onClick="" type="button" class="btn-nums" name="" value="6">
-                <input onClick="" type="button" class="btn-ops" name="" value="-">
-                
-            </div>
-            <div class="row">
-                <input onClick="" type="button" class="btn-ops" name="" value="tan">
-                <input onClick="" type="button" class="btn-nums" name="" value="1">
-                <input onClick="" type="button" class="btn-nums" name="" value="2">
-                <input onClick="" type="button" class="btn-nums" name="" value="3">
-                <input onClick="" type="button" class="btn-ops" name="" value="+">
-                
-            </div>
-            <div class="row">
-                <input onClick="" type="button" class="btn-ops" name="" value="(">
-                <input onClick="" type="button" class="btn-ops" name="" value=")">
-                <input onClick="" type="button" class="btn-nums" name="" value="0">
-                <input onClick="" type="button" class="btn-ops" name="" value=".">
-                <input onClick="" type="button" class="btn-eq" name="" value="=">   
+                <button class="btn-ops" value="Del">(</button>
+                <button class="btn-ops" value="Del">)</button>
+                <button class="btn-nums" value="Del">0</button>
+                <button class="btn-ops" value="Del">.</button>
+                <button class="btn-eq" value="Del">=</button>   
             </div>
         </div>
       </div>

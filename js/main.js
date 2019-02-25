@@ -1,9 +1,10 @@
 /**
- * UI CONTROL
+ * UI control
  */
+var result = document.getElementById("result");
+var expressionField = document.getElementById("expression");
 window.onload = function() {
-    var expressionField = document.getElementById("expression");
-    //Prevent typing in results field
+    //Prevent typing in expression field
     expressionField.addEventListener("keydown", (event) => {
         event.preventDefault();
     }, false);
@@ -12,7 +13,8 @@ window.onload = function() {
     var numBtns = document.querySelectorAll('.btn-nums, .btn-ops');
     for(var i = 0; i < numBtns.length; i++ ) {
         numBtns[i].addEventListener("click", function() {
-            insertAtCaret(expressionField, this.value);
+            removeRipples();
+            insertAtCaret(expressionField, this.innerHTML);
         }, false);
     }
     
@@ -25,25 +27,53 @@ window.onload = function() {
     //clear input
     var clearBtn = document.getElementById('btn-clear');
     clearBtn.addEventListener("click", function(){
+        if (expressionField.value === "") {
+            result.innerHTML = "";
+        }
         expressionField.value = "";
     }, false);
 
-    //tokenize expression
+    //evaluate expression
     var eqBtn = document.querySelector('.btn-eq');
     eqBtn.addEventListener("click", function() {
         console.log(tokenize(expressionField.value));
-        expressionField.value += '\n' + (evalTree(buildTree(tokenize(expressionField.value)).root)); 
+        console.log(buildTree(tokenize(expressionField.value)));
+        result.innerHTML = (evalTree(buildTree(tokenize(expressionField.value)).root)); 
 
     }, false);
 
-    //flip sign button
-    var clearSign = document.getElementById("btn-flipsign");
-    clearSign.addEventListener("click", function() {
-        
-    }, false);
+    /**
+    * UI Effects
+    */
+    var allBtns = document.querySelectorAll('.btn-ops, .btn-nums, .btn-eq, .btn-del');
+    Array.prototype.forEach.call(allBtns, (btn) => {
+        btn.addEventListener('click', createRipple);
+    }) 
+
+    function createRipple(event) {
+        var circle = document.createElement('div');
+        this.appendChild(circle);
+        var d = Math.max(this.clientWidth, this.clientHeight);
+        circle.style.width = circle.style.height = d + 'px';
+        var rect = this.getBoundingClientRect();
+        circle.style.left = event.clientX - rect.left - d/2 + 'px';
+        circle.style.top = event.clientY - rect.top - d/2 + 'px';
+        circle.classList.add('ripple'); 
+    }
+
+    function removeRipples() {
+        var children = document.querySelectorAll('.ripple')
+        for (let c of children) {
+            c.remove();
+        }
+    }
     
 }   
 
+/**
+ * Build a parse tree from the given token array.
+ * @param {*} tokens 
+ */
 function buildTree(tokens) {
     var parseTree = new ParseTree();
     for (var i = 0; i < tokens.length; i++) {
@@ -68,28 +98,38 @@ function buildTree(tokens) {
     return parseTree;
 }
 
+/**
+ * Do a depth first search through the tree finding operators and evaluating their children.
+ * Catch invald input.
+ * @param {*} node 
+ */
 function evalTree(node) {
-    if (node.left === null && node.right === null)
-        //in case number has already be evaluated
-        return (typeof node.value === "number") ? node.value : parseInt(node.value); 
-    else {
-        var left = node.left; 
-        var right = node.right; 
+    try {
+        if (node.left === null && node.right === null)
+            //in case number has already be evaluated
+            return (typeof node.value === "number") ? node.value : parseInt(node.value); 
+        else {
+            var left = node.left; 
+            var right = node.right; 
+        }
+        var v = node.value;
+        switch(v) {
+            case '+':
+                return evalTree(left) + evalTree(right);
+            case '-':
+                return evalTree(left) - evalTree(right);
+            case '/':
+                return evalTree(left) / evalTree(right);
+            case '*':
+                return evalTree(left) * evalTree(right);
+            case '%':
+                return evalTree(left) % evalTree(right);
+            case null:
+                return evalTree(left);    
+        }
     }
-    var v = node.value;
-    switch(v) {
-        case '+':
-            return evalTree(left) + evalTree(right);
-        case '-':
-            return evalTree(left) - evalTree(right);
-        case '/':
-            return evalTree(left) / evalTree(right);
-        case '*':
-            return evalTree(left) * evalTree(right);
-        case '%':
-            return evalTree(left) % evalTree(right);
-        case null:
-            return evalTree(left);    
+    catch (err) {
+        console.log("Invalid Input..." + err);
     }
 }
  /**
@@ -161,7 +201,8 @@ class ParseTree {
             var newNode = new Node(value);
             newNode.left = this.root;
             this.root = newNode;
-            if (newNode.value === '*' || newNode.value === '/') 
+            if ((newNode.value === '*' || newNode.value === '/' || newNode.value === '%') && 
+                (newNode.left.value !=='*' && newNode.left.value !== '/' && newNode.left.value !== '%')) 
                 this.root = rightRotate(newNode);
         }
         else 

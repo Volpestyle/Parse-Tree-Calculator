@@ -1,51 +1,87 @@
+/*-------------
+---Normalize---
+-------------*/
 input:focus,
 textarea:focus,
 button:focus {
     outline: none;
 }
 
-#wrapper {
-
+body {
+    //#e2e1e0
+    //#191919
+    background: #e2e1e0;
+    font-family: 'Roboto', sans-serif;
 }
+
+/*-------------
+---UI Effects--
+-------------*/
+.ripple {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    animation: ripple 0.4s linear;
+    transform: scale(0);
+}
+  
+@keyframes ripple {
+    to {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/*-------------
+-----Main------
+-------------*/
 
 #calc-body {
     width:400px;
-    height:400px;
-    background:black;
+    background: #DBE4EE;
     position: relative;
     margin:50px auto;
+    padding: 10px;
+    overflow: auto;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-#calc-buttons {
-}
-
-%resultContainer {
-    color: white;
+%screenContainer {
+    color: black;
     width: 100%;
-    background-color: black;
+    background-color: white;
     border: 0;
+    overflow: auto;
+    box-sizing:border-box;
+    font-size: 20px;
 }
 
-#result {
-    @extend %resultContainer;
+#calc-screen {
+    @extend %screenContainer;
     display:block;
     position: relative;
     height: 100px;
-    margin:10px auto;
+    margin-bottom:10px;
     outline: none;
-    overflow: hidden;
-    letter-spacing: 4px;
+    //letter-spacing: 4px;
     &:hover {
         cursor:text;
     }
 } 
 
 #expression {
-    @extend %resultContainer;
-    font: normal normal normal 20px/100% Arial, Helvetica, sans-serif;
+    @extend %screenContainer;
     padding: 10px;
     width: 100%;
     resize: none;  
+}
+
+#result {
+    @extend %screenContainer;
+    text-align: right;
+    padding: 0px 10px;
 }
 
 .row {
@@ -60,30 +96,29 @@ button:focus {
     height:50px;
     margin: 0px 5px;
     border: 0;
-    border-radius:5px;
+    color: white;
+    overflow: hidden;
+    position: relative;
     cursor: pointer;
-    font: normal normal normal 20px/100% Arial, Helvetica, sans-serif;
-    border-bottom:3px solid #333;
-    &:active {
-        border-bottom:0;
-        box-shadow: inset 5px 5px 5px #555;
-    }  
+    font-size: 20px;
+    font-weight: 300;  
 }
 
 .btn-nums {
     @extend %btn-shared;
-    background-color: gold;
+    background-color: rgb(36, 112, 189);
+    
 }
 .btn-ops {
     @extend %btn-shared;
-    background-color: orange;
+    background-color: rgb(255, 160, 52);
 }
 .btn-del {
     @extend %btn-shared;
-    background-color: lightcoral;
+    background-color: rgb(247, 74, 52);
 }
 .btn-eq {
     @extend %btn-shared;
-    background-color: lightgreen;
+    background-color: rgb(55, 211, 81)
 }
 

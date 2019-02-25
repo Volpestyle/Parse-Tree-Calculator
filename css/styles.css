@@ -1,38 +1,71 @@
+/*-------------
+---Normalize---
+-------------*/
 input:focus,
 textarea:focus,
 button:focus {
   outline: none; }
 
+body {
+  background: #e2e1e0;
+  font-family: 'Roboto', sans-serif; }
+
+/*-------------
+---UI Effects--
+-------------*/
+.ripple {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  animation: ripple 0.4s linear;
+  transform: scale(0); }
+
+@keyframes ripple {
+  to {
+    transform: scale(2.5);
+    opacity: 0; } }
+
+/*-------------
+-----Main------
+-------------*/
 #calc-body {
   width: 400px;
-  height: 400px;
-  background: black;
+  background: #DBE4EE;
   position: relative;
-  margin: 50px auto; }
+  margin: 50px auto;
+  padding: 10px;
+  overflow: auto;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
-#result, #expression {
-  color: white;
+#calc-screen, #expression, #result {
+  color: black;
   width: 100%;
-  background-color: black;
-  border: 0; }
+  background-color: white;
+  border: 0;
+  overflow: auto;
+  box-sizing: border-box;
+  font-size: 20px; }
 
-#result {
+#calc-screen {
   display: block;
   position: relative;
   height: 100px;
-  margin: 10px auto;
-  outline: none;
-  overflow: hidden;
-  letter-spacing: 4px; }
+  margin-bottom: 10px;
+  outline: none; }
 
-#result:hover {
+#calc-screen:hover {
   cursor: text; }
 
 #expression {
-  font: normal normal normal 20px/100% Arial, Helvetica, sans-serif;
   padding: 10px;
   width: 100%;
   resize: none; }
+
+#result {
+  text-align: right;
+  padding: 0px 10px; }
 
 .row {
   width: 100%;
@@ -45,23 +78,21 @@ button:focus {
   height: 50px;
   margin: 0px 5px;
   border: 0;
-  border-radius: 5px;
+  color: white;
+  overflow: hidden;
+  position: relative;
   cursor: pointer;
-  font: normal normal normal 20px/100% Arial, Helvetica, sans-serif;
-  border-bottom: 3px solid #333; }
-
-.btn-nums:active, .btn-ops:active, .btn-del:active, .btn-eq:active {
-  border-bottom: 0;
-  box-shadow: inset 5px 5px 5px #555; }
+  font-size: 20px;
+  font-weight: 300; }
 
 .btn-nums {
-  background-color: gold; }
+  background-color: #2470bd; }
 
 .btn-ops {
-  background-color: orange; }
+  background-color: #ffa034; }
 
 .btn-del {
-  background-color: lightcoral; }
+  background-color: #f74a34; }
 
 .btn-eq {
-  background-color: lightgreen; }
+  background-color: #37d351; }
