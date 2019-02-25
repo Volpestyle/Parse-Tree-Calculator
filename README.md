@@ -12,6 +12,7 @@ This calculator can perform all expected operations:
 - When using trig functions, there is no implied multiplication, and you must place a '*' sign in between expressions. <br />
 (e.g., 5*sin(3) **not** 5sin(3))
 - You can input negative numbers by simply placing a '-' before the number.
+- You can only input expressions with the buttons. 
 - If there is data in the input field, the 'C' button will clear only input, otherwise it will clear the result field.
 - You can position the cursor to insert/delete at any place in the input field.
 
