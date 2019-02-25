@@ -96,3 +96,19 @@ body {
 
 .btn-eq {
   background-color: #37d351; }
+
+footer {
+  position: fixed;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  width: 100%;
+  background-color: rgba(61, 61, 61, 0.932);
+  text-align: center; }
+
+footer span {
+  position: relative;
+  color: rgba(248, 248, 248, 0.452); }

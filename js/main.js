@@ -36,9 +36,13 @@ window.onload = function() {
     //evaluate expression
     var eqBtn = document.querySelector('.btn-eq');
     eqBtn.addEventListener("click", function() {
-        console.log(tokenize(expressionField.value));
-        console.log(buildTree(tokenize(expressionField.value)));
-        result.innerHTML = (evalTree(buildTree(tokenize(expressionField.value)).root)); 
+        //console.log(tokenize(expressionField.value));
+        //console.log(buildTree(tokenize(expressionField.value)));
+        try {
+            result.innerHTML = (evalTree(buildTree(tokenize(expressionField.value)).root)); 
+        } catch (error) {
+            console.log("Invalid Input: " + error)
+        }
 
     }, false);
 
@@ -75,27 +79,31 @@ window.onload = function() {
  * @param {*} tokens 
  */
 function buildTree(tokens) {
-    var parseTree = new ParseTree();
-    for (var i = 0; i < tokens.length; i++) {
-        if (tokens[i].type === "Literal") {
-            parseTree.insertLiteral(tokens[i].value);
+    try {
+        var parseTree = new ParseTree();
+        for (var i = 0; i < tokens.length; i++) {
+            if (tokens[i].type === "Literal") {
+                parseTree.insertLiteral(tokens[i].value);
+            }
+            else if (tokens[i].type === "Operator") {
+                parseTree.insertOperator(tokens[i].value);
+            }
+            else if (tokens[i].type === "Function") {
+                parseTree.funcStack.push(tokens[i].value);
+            }
+            else if (tokens[i].type === "Right Parenthesis") {
+                return [parseTree, i + 1]; 
+            }
+            else if (tokens[i].type === "Left Parenthesis") {     
+                var subTree = buildTree(tokens.slice(i + 1, tokens.length));
+                parseTree.insertLiteral(evalTree(subTree[0].root));
+                i += subTree[1]; //Skip over what the subTree already accounted for
+            }
         }
-        else if (tokens[i].type === "Operator") {
-            parseTree.insertOperator(tokens[i].value);
-        }
-        else if (tokens[i].type === "Function") {
-            parseTree.funcStack.push(tokens[i].value);
-        }
-        else if (tokens[i].type === "Right Parenthesis") {
-            return [parseTree, i + 1]; 
-        }
-        else if (tokens[i].type === "Left Parenthesis") {     
-            var subTree = buildTree(tokens.slice(i + 1, tokens.length));
-            parseTree.insertLiteral(evalTree(subTree[0].root));
-            i += subTree[1]; //Skip over what the subTree already accounted for
-        }
+        return parseTree;
+    } catch (err) {
+        console.log("Failed to build tree: " + err)
     }
-    return parseTree;
 }
 
 /**
@@ -129,7 +137,7 @@ function evalTree(node) {
         }
     }
     catch (err) {
-        console.log("Invalid Input..." + err);
+        console.log("Failed to evaluate tree: " + err);
     }
 }
  /**
