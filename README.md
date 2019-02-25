@@ -15,15 +15,19 @@ This calculator can perform all expected operations:
 - If there is data in the input field, the 'C' button will clear only input, otherwise it will clear the result field.
 
 ## Implementation Details
-#### Tokenizing
+### Tokenizing
 Before an expression is evaluated, it must be tokenzed first so 'buildTree()' knows how to build the tree. 
 Each component of the expression is typed as either a "Literal", "Operator, "Left Parenthesis", "Right Parenthesis, or "Function", and assigned a value. <br />
 Here's an example of the token array of '5(sin(5)+2)':
 ![token-array](doc-images/token-array.png?raw=true)
 
-#### Parse Tree Formation
+### Parse Tree Formation
 This calculator uses a parse tree to implement order of operations. <br />
 **Expression: 5+2*6** <br />
+| ------------- |-------------| -----|
+| yo ![parse-tree](doc-images/parse-tree.jpg?raw=true) |![parse-tree](doc-images/parse-tree%20(1).jpg?raw=true) | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 Insert: '5'. <br />
 ![parse-tree](doc-images/parse-tree.jpg?raw=true)
 Insert: '+'. <br />
