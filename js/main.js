@@ -115,7 +115,7 @@ function evalTree(node) {
     try {
         if (node.left === null && node.right === null)
             //in case number has already be evaluated
-            return (typeof node.value === "number") ? node.value : parseInt(node.value); 
+            return (typeof node.value === "number") ? node.value : parseFloat(node.value); 
         else {
             var left = node.left; 
             var right = node.right; 
