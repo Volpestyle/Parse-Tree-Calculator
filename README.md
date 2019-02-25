@@ -19,7 +19,7 @@ This calculator can perform all expected operations:
 Before an expression is evaluated, it must be tokenzed first so 'buildTree()' knows how to build the tree. 
 Each component of the expression is typed as either a "Literal", "Operator, "Left Parenthesis", "Right Parenthesis, or "Function", and assigned a value. 
 Heres an example of the expression '5(sin(5)+2) being tokenized:
-[token-array] (doc-images/token-array.png)
+[token-array](doc-images/token-array.png)
 
 #### Parse Tree Formation
 This calculator uses a parse tree to implement order of operations. Heres how it is built: <br />
