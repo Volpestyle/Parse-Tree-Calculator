@@ -32,7 +32,7 @@ Insert: '2':
 ![parse-tree](doc-images/parse-tree%20(2).jpg?raw=true) <br />
 Insert: '\*': 
 ![parse-tree](doc-images/parse-tree%20(3).jpg?raw=true) <br />
-Now you'll notice the order of expressions is incorrect. To fix this, we simply right rotate the tree.
+Now you'll notice the order of expressions is incorrect. To fix this, we simply right rotate the tree:
 ![parse-tree](doc-images/parse-tree%20(4).jpg?raw=true) <br />
 Insert '6':
 ![parse-tree](doc-images/parse-tree%20(5).jpg?raw=true) <br />
