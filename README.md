@@ -1,5 +1,5 @@
 # Parse-Tree-Calculator
-A basic scientific calculator.
+A basic scientific calculator built in HTML, SASS, and Vanilla JavaScript. <br />
 
 ## Usage
 This calculator can perform all expected operations:
