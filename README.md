@@ -13,6 +13,7 @@ This calculator can perform all expected operations:
 (e.g., 5*sin(3) **not** 5sin(3))
 - You can input negative numbers by simply placing a '-' before the number.
 - If there is data in the input field, the 'C' button will clear only input, otherwise it will clear the result field.
+- You can position the cursor to insert/delete at any place in the input field.
 
 #### Invalid Input
 - Input that cannot be evaluated, such as '2**', will return the user 'NaN'.
