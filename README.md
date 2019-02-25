@@ -23,18 +23,17 @@ Here's an example of the token array of '5(sin(5)+2)':
 
 ### Parse Tree Formation
 This calculator uses a parse tree to implement order of operations. <br />
-**Expression: 5+2*6** <br />
+**Expression: 5+2\*6**<br />
 Insert: '5'. 
-![parse-tree](doc-images/parse-tree.jpg?raw=true)<br />
+![parse-tree](doc-images/parse-tree.jpg?raw=true) <br />
 Insert: '+'. 
-![parse-tree](doc-images/parse-tree%20(1).jpg?raw=true)<br />
+![parse-tree](doc-images/parse-tree%20(1).jpg?raw=true) <br />
 Insert: '2'. 
-![parse-tree](doc-images/parse-tree%20(2).jpg?raw=true)<br />
-Insert: '*'. 
-![parse-tree](doc-images/parse-tree%20(3).jpg?raw=true)<br />
+![parse-tree](doc-images/parse-tree%20(2).jpg?raw=true) <br />
+Insert: '\*'. 
+![parse-tree](doc-images/parse-tree%20(3).jpg?raw=true) <br />
 Insert: '6'. 
-![parse-tree](doc-images/parse-tree%20(4).jpg?raw=true)<br />
+![parse-tree](doc-images/parse-tree%20(4).jpg?raw=true) <br />
 Now you'll notice the order of expressions is incorrect. To fix this, we simply right rotate the tree. <br />
-Right Rotate Tree. 
-![parse-tree](doc-images/parse-tree%20(5).jpg?raw=true)<br />
-Expression: 5+2*6 <br />
+![parse-tree](doc-images/parse-tree%20(5).jpg?raw=true) <br />
+<br />
