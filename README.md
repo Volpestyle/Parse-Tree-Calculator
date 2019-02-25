@@ -14,6 +14,10 @@ This calculator can perform all expected operations:
 - You can input negative numbers by simply placing a '-' before the number.
 - If there is data in the input field, the 'C' button will clear only input, otherwise it will clear the result field.
 
+#### Invalid Input
+- Input that cannot be evaluated, such as '2**', will return the user 'NaN'.
+- Input that does not allow the parse tree to be made, such as unclosed parenthesis, will log an error to the console, and return the user nothing.
+
 ## Implementation Details
 ### Tokenizing
 Before an expression is evaluated, it must be tokenzed first so 'buildTree()' knows how to build the tree. 
