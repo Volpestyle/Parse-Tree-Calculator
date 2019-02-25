@@ -23,7 +23,10 @@ Here's an example of the token array of '5(sin(5)+2)':
 
 #### Parse Tree Formation
 This calculator uses a parse tree to implement order of operations. <br />
-Expression: 5+2*6
+Expression: 5+2*6 <br />
 ![parse-tree](doc-images/parse-tree.jpg?raw=true)
-
-
+![parse-tree](doc-images/parse-tree%20(1).jpg?raw=true)
+![parse-tree](doc-images/parse-tree%20(2).jpg?raw=true)
+![parse-tree](doc-images/parse-tree%20(3).jpg?raw=true)
+![parse-tree](doc-images/parse-tree%20(4).jpg?raw=true)
+![parse-tree](doc-images/parse-tree%20(5).jpg?raw=true)
