@@ -1,6 +1,6 @@
 # Parse-Tree-Calculator
+[Live here](https://volpestyle.github.io/Parse-Tree-Calculator/)   
 A basic scientific calculator built in HTML, SASS, and Vanilla JavaScript.  
-https://volpestyle.github.io/Parse-Tree-Calculator/   
 ![parse-tree-calc](/doc-images/parse-tree-calc.jpg)
 
 ## Usage
